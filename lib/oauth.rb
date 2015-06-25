@@ -2,6 +2,11 @@ $LOAD_PATH << File.dirname(__FILE__) unless $LOAD_PATH.include?(File.dirname(__F
 
 module OAuth
   VERSION = "0.4.7"
+
+  include ActiveSupport::Configurable
+  config_accessor :default_user_agent do
+    "OAuth gem v#{OAuth::VERSION}"
+  end
 end
 
 require 'oauth/oauth'
